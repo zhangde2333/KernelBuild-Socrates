@@ -157,7 +157,6 @@ jobs:
           echo "CONFIG set to: $CONFIG"
 
       - name: Initialize and Sync Kernel Source
-        uses: actions/checkout@v4
         run: |
           echo "Creating folder for configuration: $CONFIG..."
           mkdir -p "$CONFIG"
@@ -167,10 +166,10 @@ jobs:
           echo "Initializing and syncing kernel source..."
           FORMATTED_BRANCH="${{ inputs.android_version }}-${{ inputs.kernel_version }}-${{ inputs.os_patch_level }}"
           # $REPO init --depth=1 --u https://android.googlesource.com/kernel/manifest -b common-${FORMATTED_BRANCH} --repo-rev=v2.16
-          cp ${{ github.workspace }}/socrates-default.xml .repo/manifests/default.xml
+           $REPO init --depth=1 --u https://github.com/Monstorix/KernelBuild-Socrates -b main --repo-rev=v2.16
           
           REMOTE_BRANCH=$(git ls-remote https://github.com/hfdem/android_gki_kernel_5.15_common ${FORMATTED_BRANCH})
-          DEFAULT_MANIFEST_PATH=.repo/manifests/default.xml
+          DEFAULT_MANIFEST_PATH=.repo/manifests/socrates-default.xml
 
           # Check if branch is deprecated
           if grep -q deprecated <<< $REMOTE_BRANCH; then
