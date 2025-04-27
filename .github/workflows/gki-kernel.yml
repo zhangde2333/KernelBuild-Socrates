@@ -157,6 +157,7 @@ jobs:
           echo "CONFIG set to: $CONFIG"
 
       - name: Initialize and Sync Kernel Source
+        uses: actions/checkout@v4
         run: |
           echo "Creating folder for configuration: $CONFIG..."
           mkdir -p "$CONFIG"
