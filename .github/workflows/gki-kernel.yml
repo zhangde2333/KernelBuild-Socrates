@@ -382,6 +382,12 @@ jobs:
       #  run: |
       #    rm -rf source-patched-$CONFIG
 
+      - name: For Debug - List the PATHS
+        with:
+          command: |
+            ls -a /home/runner/work/KernelBuild-Socrates/KernelBuild-Socrates/android13-5.15-176/prebuilts/clang/host/linux-x86/
+            echo PATH
+          
       - name: Build with retry
         uses: nick-fields/retry@v3
         with:
@@ -393,7 +399,6 @@ jobs:
             set -x
             cd "$CONFIG"
             echo "Building the kernel..."
-            export PATH="/home/runner/work/KernelBuild-Socrates/KernelBuild-Socrates/android13-5.15-176/prebuilts/clang/host/linux-x86/clang-r547379/bin/:$PATH"
             if [ -f "build/build.sh" ]; then
               LTO=thin BUILD_CONFIG=common/build.config.gki.aarch64 build/build.sh CC="/usr/bin/ccache /home/runner/work/KernelBuild-Socrates/KernelBuild-Socrates/android13-5.15-176/prebuilts/clang/host/linux-x86/clang-r547379/bin/clang" || exit 1
             else
