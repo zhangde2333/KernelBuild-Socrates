@@ -383,8 +383,7 @@ jobs:
       #    rm -rf source-patched-$CONFIG
 
       - name: For Debug - List the PATHS
-        with:
-          command: |
+        run: |
             ls -a /home/runner/work/KernelBuild-Socrates/KernelBuild-Socrates/android13-5.15-176/prebuilts/clang/host/linux-x86/
             echo PATH
           
