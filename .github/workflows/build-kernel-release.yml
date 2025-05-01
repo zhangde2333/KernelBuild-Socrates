@@ -63,13 +63,13 @@ jobs:
       REPO_NAME: KernelBuild-Socrates
       GH_TOKEN: ${{ github.token }}
       GITHUB_TOKEN: ${{ github.token }}
-      RELEASE_NAME: "*TEST BUILD* GKI Kernels With KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }} & SUSFS v1.5.5 *TEST BUILD*"
+      RELEASE_NAME: "TEST ONLY - GKI/KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }}/SUSFS"
       RELEASE_NOTES: |
-        This release contains KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }} and SUSFS v1.5.5
+        This release contains KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }} and SUSFS
         
         Features:
         -> KernelSU-${{ inputs.kernelsu_variant }}-${{ inputs.kernelsu_branch }}
-        -> SUSFS ඞ v1.5.5 
+        -> SUSFS ඞ
         -> Manual Hooks for Better Hiding
         -> Wireguard Support
         -> Simple Maphide for LineageOS Detections
