@@ -1,7 +1,7 @@
 diff -u a/lib/Kconfig b/lib/Kconfig
 --- a/lib/Kconfig
 +++ b/lib/Kconfig
-@@ -328,16 +328,28 @@
+@@ -328,16 +328,27 @@
  config LZO_DECOMPRESS
  	tristate
  
@@ -52,7 +52,7 @@ diff -u a/lib/Makefile b/lib/Makefile
 diff -u a/crypto/Kconfig b/crypto/Kconfig
 --- a/crypto/Kconfig
 +++ b/crypto/Kconfig
-@@ -1817,12 +1817,28 @@
+@@ -1817,13 +1817,29 @@
  	select CRYPTO_ACOMP2
  	select LZ4_COMPRESS
  	select LZ4_DECOMPRESS
@@ -85,7 +85,7 @@ diff -u a/crypto/Kconfig b/crypto/Kconfig
 diff -u a/crypto/Makefile b/crypto/Makefile
 --- a/crypto/Makefile
 +++ b/crypto/Makefile
-@@ -151,13 +151,15 @@
+@@ -151,14 +151,16 @@
  obj-$(CONFIG_CRYPTO_CRC32C) += crc32c_generic.o
  obj-$(CONFIG_CRYPTO_CRC32) += crc32_generic.o
  obj-$(CONFIG_CRYPTO_CRCT10DIF) += crct10dif_common.o crct10dif_generic.o
@@ -118,7 +118,7 @@ diff -u a/drivers/block/zram/Kconfig b/drivers/block/zram/Kconfig
  	  itself. These disks allow very fast I/O and compression provides
  	  good amounts of memory savings.
  
-@@ -13,49 +13,64 @@
+@@ -13,50 +13,65 @@
  	  disks and maybe many more.
  
  	  See Documentation/admin-guide/blockdev/zram.rst for more information.
