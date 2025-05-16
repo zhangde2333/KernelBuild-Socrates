@@ -260,7 +260,7 @@ jobs:
             cp -r ../../SukiSU_patch/other/zram/lz4k_oplus ./lib/
 
             # cp ../../SukiSU_patch/other/zram/zram_patch/${{ inputs.kernel_version }}/lz4kd.patch ./
-            cp $GITHUB_WORKSPACE/lz4kd.patch ./
+            cp ../../lz4kd.patch ./
             echo "正在打lz4kd补丁"
             patch -p1 -F 3 < lz4kd.patch || true
             echo '完成LZ4KD补丁'
