@@ -29,7 +29,6 @@ diff -u a/lib/Kconfig b/lib/Kconfig
  config ZSTD_COMPRESS
  	select XXHASH
  	tristate
- 	
 diff -u a/lib/Makefile b/lib/Makefile
 --- a/lib/Makefile
 +++ b/lib/Makefile
