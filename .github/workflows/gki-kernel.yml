@@ -143,6 +143,7 @@ jobs:
           # Clone repositories using the branch names
           git clone https://github.com/ShirkNeko/susfs4ksu.git -b "$SUSFS_BRANCH"
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
+          git clone https://github.com/monstorix/KernelBuild-Socrates -b main
           cd SukiSU_patch
           cp -r AnyKernel3 ../
           cd ..
@@ -260,7 +261,7 @@ jobs:
             cp -r ../../SukiSU_patch/other/zram/lz4k_oplus ./lib/
 
             # cp ../../SukiSU_patch/other/zram/zram_patch/${{ inputs.kernel_version }}/lz4kd.patch ./
-            cp ../../lz4kd.patch ./
+            cp ../../KernelBuild-Socrates/lz4kd.patch ./
             echo "正在打lz4kd补丁"
             patch -p1 -F 3 < lz4kd.patch || true
             echo '完成LZ4KD补丁'
