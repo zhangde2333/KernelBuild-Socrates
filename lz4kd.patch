@@ -1,10 +1,7 @@
 diff -u a/lib/Kconfig b/lib/Kconfig
 --- a/lib/Kconfig
 +++ b/lib/Kconfig
-@@ -328,24 +328,35 @@
- config LZO_DECOMPRESS
- 	tristate
- 
+@@ -331,12 +331,24 @@
  config LZ4_COMPRESS
  	tristate
  
@@ -15,8 +12,8 @@ diff -u a/lib/Kconfig b/lib/Kconfig
  	tristate
  
  config LZ4_DECOMPRESS
-	tristate
-
+ 	tristate
+ 
 +config LZ4K_DECOMPRESS
 +	tristate
 +
@@ -25,18 +22,10 @@ diff -u a/lib/Kconfig b/lib/Kconfig
 +
 +config LZ4KD_DECOMPRESS
 +	tristate
-
++
  config ZSTD_COMMON
-	select XXHASH
-	tristate
-
- config ZSTD_COMPRESS
-	select ZSTD_COMMON
-	tristate
-
- config ZSTD_DECOMPRESS
-	select ZSTD_COMMON
-	tristate
+ 	select XXHASH
+ 	tristate
 diff -u a/lib/Makefile b/lib/Makefile
 --- a/lib/Makefile
 +++ b/lib/Makefile
