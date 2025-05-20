@@ -201,7 +201,7 @@ jobs:
           cd "$CONFIG"
           if [ "${{ inputs.kernelsu_variant }}" == "SukiSU" ]; then
             echo "Adding KernelSU SukiSU..."
-            curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/main/kernel/setup.sh" | bash $BRANCH
+            curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash $BRANCH
           fi
 
       - name: Apply SUSFS Patches for KernelSU Variants
@@ -250,7 +250,7 @@ jobs:
           #cp ../../SukiSU_patch/69_hide_stuff.patch ./
           #patch -p1 -F 3 < 69_hide_stuff.patch
 
-      - name: 复制源文件&应用LZ4KD&ZSTDN补丁
+      - name: Copy and Apply LZ4KD and ZSTDN patches
         run: |
           if [[ "${{ env.ZRAM }}" == "true" ]]; then
             echo "Changing to configuration directory: $CONFIG..."
