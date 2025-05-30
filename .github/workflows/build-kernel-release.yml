@@ -38,6 +38,10 @@ on:
         required: false
         type: string  # This input is required if 'Other' is chosen
         default: ""  # Default is empty, but can be filled in if 'Other' is selected
+      set_defbbr:
+        description: '是否将BBR设为默认拥塞算法?（实验性）'
+        required: true
+        type: boolean
 
 jobs:
   build-kernel-a13-5-15:
