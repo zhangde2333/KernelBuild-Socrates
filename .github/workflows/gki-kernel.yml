@@ -168,7 +168,7 @@ jobs:
           FORMATTED_BRANCH="${{ inputs.android_version }}-${{ inputs.kernel_version }}-${{ inputs.os_patch_level }}"
           # $REPO init --depth=1 --u https://android.googlesource.com/kernel/manifest -b common-${FORMATTED_BRANCH} --repo-rev=v2.16
           $REPO init --depth=1 --u https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/Monstorix/KernelBuild-Socrates.git -b common-${FORMATTED_BRANCH} --repo-rev=v2.16
-          REMOTE_BRANCH=$(git ls-remote https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/Monstorix/android_gki_kernel_5.15_common.git ${FORMATTED_BRANCH})
+          REMOTE_BRANCH=$(git ls-remote https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/monstorix/common.git ${FORMATTED_BRANCH})
           DEFAULT_MANIFEST_PATH=.repo/manifests/default.xml
 
           # Check if branch is deprecated
