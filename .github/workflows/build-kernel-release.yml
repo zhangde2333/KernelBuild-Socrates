@@ -12,6 +12,11 @@ on:
         required: true
         type: boolean
         default: true
+      build_a13_LOS_515:
+        description: 'Build Lineage a13 5.15?'
+        required: true
+        type: boolean
+        default: true
       make_release:
         description: 'Do you want to create a release?'
         required: true
@@ -53,6 +58,16 @@ jobs:
       kernelsu_variant: ${{ inputs.kernelsu_variant }}
       kernelsu_branch: ${{ inputs.kernelsu_branch }}
       kernelsu_branch_other: ${{ inputs.kernelsu_branch_other }}
+      
+  build-kernel-a13-los-5-15:
+    if: ${{ inputs.build_a13_LOS_515 }} && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/kernel-a13-5.15-los.yml
+    secrets: inherit
+    with:
+      make_release: ${{ inputs.make_release }}
+      kernelsu_variant: ${{ inputs.kernelsu_variant }}
+      kernelsu_branch: ${{ inputs.kernelsu_branch }}
+      kernelsu_branch_other: ${{ inputs.kernelsu_branch_other }}
 
   trigger-release:
     runs-on: ubuntu-latest
@@ -70,22 +85,6 @@ jobs:
       RELEASE_NAME: "TEST ONLY - GKI/KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }}/SUSFS"
       RELEASE_NOTES: |
         This release contains KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }} and SUSFS
-        
-        Features:
-        -> KernelSU-${{ inputs.kernelsu_variant }}-${{ inputs.kernelsu_branch }}
-        -> SUSFS ඞ
-        -> Manual Hooks for Better Hiding
-        -> Wireguard Support
-        -> Simple Maphide for LineageOS Detections
-        -> Futile Maphide for jit-zygote-cache Detections
-        -> Magic Mount Support
-
-        Notes:
-        -> SUS SU Mode 2 will show as disabled or not compatble due to non-kprobe hooks and is not needed anymore!
-        -> Kernel Flasher is broken with latest susfs, try https://github.com/libxzr/HorizonKernelFlasher!
-
-        Module: 
-        -> https://github.com/sidex15/ksu_module_susfs
         
     steps:
       # Checkout the code
