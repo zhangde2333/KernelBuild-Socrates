@@ -74,8 +74,9 @@ jobs:
     permissions:
       contents: write
       actions: write
-    needs:
-        - build-kernel-a13-5-15
+    needs: 
+      - build-kernel-a13-5-15 
+      - build-kernel-a13-los-5-15
     if: ${{ inputs.make_release }} && github.ref == 'refs/heads/main'
     env:
       REPO_OWNER: Monstorix
