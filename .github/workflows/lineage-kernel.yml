@@ -167,8 +167,8 @@ jobs:
           echo "Initializing and syncing kernel source..."
           FORMATTED_BRANCH="${{ inputs.android_version }}-${{ inputs.kernel_version }}-${{ inputs.os_patch_level }}"
           # $REPO init --depth=1 --u https://android.googlesource.com/kernel/manifest -b common-${FORMATTED_BRANCH} --repo-rev=v2.16
-          $REPO init --depth=1 --u https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/Monstorix/KernelBuild-Socrates.git -b lineage-22.2 --repo-rev=v2.16
-          REMOTE_BRANCH=$(git ls-remote https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/monstorix/los_kernel_xiaomi_sm8550.git lineage-22.2)
+          $REPO init --depth=1 --u https://monstorix:${{ secrets.GITHUB_TOKEN }}@github.com/monstorix/KernelBuild-Socrates.git -b lineage-22.2 --repo-rev=v2.16
+          REMOTE_BRANCH=$(git ls-remote https://github.com/LineageOS/android_kernel_xiaomi_sm8550.git -b lineage-22.2)
           DEFAULT_MANIFEST_PATH=.repo/manifests/default.xml
 
           # Check if branch is deprecated
