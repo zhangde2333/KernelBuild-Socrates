@@ -12,11 +12,6 @@ on:
         required: true
         type: boolean
         default: true
-      build_a13_LOS_515:
-        description: 'Build Lineage a13 5.15?'
-        required: true
-        type: boolean
-        default: true
       make_release:
         description: 'Do you want to create a release?'
         required: true
@@ -52,16 +47,6 @@ jobs:
   build-kernel-a13-5-15:
     if: ${{ inputs.build_a13_515 }} && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/kernel-a13-5.15.yml
-    secrets: inherit
-    with:
-      make_release: ${{ inputs.make_release }}
-      kernelsu_variant: ${{ inputs.kernelsu_variant }}
-      kernelsu_branch: ${{ inputs.kernelsu_branch }}
-      kernelsu_branch_other: ${{ inputs.kernelsu_branch_other }}
-      
-  build-kernel-a13-los-5-15:
-    if: ${{ inputs.build_a13_LOS_515 }} && github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/kernel-a13-5.15-los.yml
     secrets: inherit
     with:
       make_release: ${{ inputs.make_release }}
