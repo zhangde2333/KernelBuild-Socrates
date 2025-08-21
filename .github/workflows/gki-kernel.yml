@@ -281,6 +281,7 @@ jobs:
             echo '完成lz4k_oplus补丁'
           fi
 
+    
       - name: LZ4KD&Lz4k_oplus配置
         run: |
           if [[ "${{ env.ZRAM }}" == "true" ]]; then
@@ -342,6 +343,17 @@ jobs:
           echo "Changing to configuration directory: $CONFIG_FILE..."
           echo "CONFIG_DEFAULT_BBR=y" >> "$CONFIG_FILE"
           
+      - name: 添加一些自用patch     
+        run: |
+          cp ../../KernelBuild-Socrates/bbr2-5.15.patch ./
+          cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunami.patch ./
+          cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunamio.patch ./
+          cp ../../KernelBuild-Socrates/999-net-tcp-add-nanqinlang (1).patch ./
+          patch -p1 -F 3 < bbr2-5.15.patch || true
+          patch -p1 -F 3 < 999-net-tcp-add-tsunami.patch || true
+          patch -p1 -F 3 < 999-net-tcp-add-tsunamio.patch || true
+          patch -p1 -F 3 < 999-net-tcp-add-nanqinlang (1).patch || true
+       
           
       - name: Add SUSFS Configuration Settings
         run: |
