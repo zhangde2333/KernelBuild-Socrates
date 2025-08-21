@@ -63,11 +63,11 @@ jobs:
       - build-kernel-a13-5-15 
     if: ${{ inputs.make_release }} && github.ref == 'refs/heads/main'
     env:
-      REPO_OWNER: Monstorix
+      REPO_OWNER: zhangde2333
       REPO_NAME: KernelBuild-Socrates
       GH_TOKEN: ${{ github.token }}
       GITHUB_TOKEN: ${{ github.token }}
-      RELEASE_NAME: "TEST ONLY - GKI/KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }}/SUSFS"
+      RELEASE_NAME: "TEST - GKI/KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }}/SUSFS"
       RELEASE_NOTES: |
         This release contains KernelSU-${{ inputs.kernelsu_variant }} ${{ inputs.kernelsu_branch }} and SUSFS
         
