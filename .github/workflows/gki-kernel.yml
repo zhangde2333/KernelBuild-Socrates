@@ -141,7 +141,7 @@ jobs:
           git clone https://github.com/ShirkNeko/susfs4ksu.git -b "$SUSFS_BRANCH"
           git clone https://github.com/WildPlusKernel/kernel_patches.git
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
-          git clone https://github.com/monstorix/KernelBuild-Socrates -b main
+          git clone https://github.com/zhangde2333/KernelBuild-Socrates -b main
           cd SukiSU_patch
           cp -r AnyKernel3 ../
           cd ..
