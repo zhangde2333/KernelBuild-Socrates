@@ -344,6 +344,7 @@ jobs:
           
       - name: 添加一些自用patch     
         run: |
+          cd "$CONFIG/common"
           cp ../../KernelBuild-Socrates/bbr2-5.15.patch ./
           cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunami.patch ./
           cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunamio.patch ./
