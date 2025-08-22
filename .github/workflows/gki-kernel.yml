@@ -292,12 +292,12 @@ jobs:
           patch -p1 -F 3 < 999-net-tcp-add-tsunami.patch || true 
           cp ../../KernelBuild-Socrates/bbr2-5.15.patch ./
           patch -p1 -F 3 < bbr2-5.15.patch || true
-          CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
-          echo "CONFIG_LRU_GEN=y" >> "$CONFIG_FILE"
-          echo "CONFIG_LRU_GEN_ENABLED=y" >> "$CONFIG_FILE"
-          echo "TCP_CONG_NANQINLANG=y" >> "$CONFIG_FILE"
-          echo "TCP_CONG_TSUNAMI=y" >> "$CONFIG_FILE"
-          echo "TCP_CONG_BBR2=y" >> "$CONFIG_FILE"
+          # CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
+          # echo "CONFIG_LRU_GEN=y" >> "$CONFIG_FILE"
+          # echo "CONFIG_LRU_GEN_ENABLED=y" >> "$CONFIG_FILE"
+          # echo "TCP_CONG_NANQINLANG=y" >> "$CONFIG_FILE"
+          # echo "TCP_CONG_TSUNAMI=y" >> "$CONFIG_FILE"
+          # echo "TCP_CONG_BBR2=y" >> "$CONFIG_FILE"
   
           
       - name: LZ4KD&Lz4k_oplus配置
@@ -307,7 +307,13 @@ jobs:
             set -e
             echo "写入LZ4KD&ZSTDN config依赖"
             CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
-
+          
+            echo "CONFIG_LRU_GEN=y" >> "$CONFIG_FILE"
+            echo "CONFIG_LRU_GEN_ENABLED=y" >> "$CONFIG_FILE"
+            echo "TCP_CONG_NANQINLANG=y" >> "$CONFIG_FILE"
+            echo "TCP_CONG_TSUNAMI=y" >> "$CONFIG_FILE"
+            echo "TCP_CONG_BBR2=y" >> "$CONFIG_FILE"
+            
             if [ "${{ inputs.kernel_version }}" = "5.10" ]; then
               echo "CONFIG_ZSMALLOC=y" >> "$CONFIG_FILE"
               echo "CONFIG_ZRAM=y" >> "$CONFIG_FILE"
@@ -360,6 +366,7 @@ jobs:
           CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
           echo "Changing to configuration directory: $CONFIG_FILE..."
           echo "CONFIG_DEFAULT_BBR=y" >> "$CONFIG_FILE"
+          
           
       - name: Add SUSFS Configuration Settings
         run: |
