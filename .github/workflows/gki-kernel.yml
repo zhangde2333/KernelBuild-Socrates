@@ -281,6 +281,15 @@ jobs:
             echo '完成lz4k_oplus补丁'
           fi
 
+      - name: 添加一些自用patch     
+        run: |
+          cd "$CONFIG/common"
+          cp ../../KernelBuild-Socrates/MGLRU-v5.patch ./
+          patch -p1 -F 3 < MGLRU-v5.patch || true
+          cp ../../KernelBuild-Socrates/nanqinlang.patch ./
+          patch -p1 -F 3 < nanqinlang.patch || true
+          cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunami.patch ./
+          patch -p1 -F 3 < 999-net-tcp-add-tsunami.patch || true          
     
       - name: LZ4KD&Lz4k_oplus配置
         run: |
@@ -342,17 +351,6 @@ jobs:
           CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
           echo "Changing to configuration directory: $CONFIG_FILE..."
           echo "CONFIG_DEFAULT_BBR=y" >> "$CONFIG_FILE"
-          
-      - name: 添加一些自用patch     
-        run: |
-          cd "$CONFIG/common"
-          cp ../../KernelBuild-Socrates/MGLRU-v5.patch ./
-          patch -p1 -F 3 < MGLRU-v5.patch || true
-          cp ../../KernelBuild-Socrates/nanqinlang.patch ./
-          patch -p1 -F 3 < nanqinlang.patch || true
-          cp ../../KernelBuild-Socrates/999-net-tcp-add-tsunami.patch ./
-          patch -p1 -F 3 < 999-net-tcp-add-tsunami.patch || true
-          
           
       - name: Add SUSFS Configuration Settings
         run: |
