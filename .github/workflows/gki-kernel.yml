@@ -307,10 +307,6 @@ jobs:
             echo "写入LZ4KD&ZSTDN config依赖"
             CONFIG_FILE="$CONFIG/common/arch/arm64/configs/gki_defconfig"
             echo "TCP_CONG_BBR2=y" >> "$CONFIG_FILE"
-            echo "TCP_CONG_NANQINLANG=y" >> "$CONFIG_FILE"
-            echo "TCP_CONG_BBRPLUS=y" >> "$CONFIG_FILE"
-            echo "DEFAULT_NANQINLANG=y" >> "$CONFIG_FILE"
-            echo "CONFIG_TCP_CONG_NANQINLANG=y" >> "$CONFIG_FILE"
             echo "CONFIG_TCP_CONG_BBR2=y" >> "$CONFIG_FILE"
             
             
